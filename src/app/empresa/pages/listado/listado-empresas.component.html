@@ -1,0 +1,110 @@
+<div class="container contenido">
+
+    <div class="row">
+        <div class="col-sm-12 col-md-9 col-lg-9 col-xl-9 col-xxl-9">
+            <h2>Listado de empresas</h2>
+        </div>
+        <div class="col-sm-12 col-md-3 col-lg-3 col-xl-3 col-xxl-3 d-grid gap-2 d-md-flex justify-content-md-end">
+            <button type="button" class="btn btn-success pull-right" (click)="agregarEmpresa()">Agregar empresa</button>
+        </div>
+        
+    </div>
+    <hr>
+    <div class="row">
+        <div style="overflow-x:auto;">
+        <table class="table table-hover">
+            <thead class="thead-dark">
+              <tr>
+                <th scope="col">Tipo Documento</th>
+                <th scope="col">Numero de documento</th>
+                <th scope="col">Nombre</th>
+                <th scope="col">Correo</th>
+                <th scope="col">Telefono</th>
+                <th></th>
+                <th></th>
+              </tr>
+            </thead>
+            <tbody>
+               
+              <tr *ngFor="let empresa of listadoEmpresas">
+                <td>{{empresa.tipo_documento}}</td>
+                <td>{{empresa.numero_documento}}</td>
+                <td>{{empresa.nombre}}</td>
+                <td>{{empresa.correo}}</td>
+                <td>{{empresa.telefono_empresa}}</td>
+                <td><button type="button" class="btn btn-info" (click)="mostrarDatosEmpresa()"><img src="assets/images/ver.png" class="icon-table" ></button></td>
+                <td><button type="button" class="btn btn-warning"><img src="assets/images/editar.png" class="icon-table" ></button></td>
+              </tr>
+            </tbody>
+          </table>
+        </div> 
+    </div>
+</div>
+
+<!--MODAL PARA LEER LOS DATOS DE C/U-->
+<div *ngIf="modalVerEmpresa">
+    <div class="modal fade show" tabindex="-1" role="dialog" aria-labelledby="exampleModalLiveLabel" style="display: block; padding-right: 17px;">
+        <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+            <h3 class="modal-title">Datos de la empresa</h3>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close" (click)="cerrarModalVerEmpresa()">
+                <span aria-hidden="true">&times;</span>
+            </button>
+            </div>
+            <div class="modal-body">
+            <p>Modal body text goes here.</p>
+            </div>
+            <div class="modal-footer">
+            <button type="button" class="btn btn-primary" (click)="cerrarModalVerEmpresa()">OK</button>
+            </div>
+        </div>
+        </div>
+    </div>
+</div>
+
+<!--MODAL PARA AGREGAR EMPRESA-->
+<div *ngIf="modalAgregarEmpresa">
+    <div class="modal fade show" tabindex="-1" role="dialog" aria-labelledby="exampleModalLiveLabel" style="display: block; padding-right: 17px;">
+        <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+            <h3 class="modal-title">Agregar empresa</h3>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close" (click)="cerraModalAgregar()">
+                <span aria-hidden="true">&times;</span>
+            </button>
+            </div>
+            <div class="modal-body">
+            <p>Modal body text goes here.</p>
+            </div>
+            <div class="modal-footer">
+            <button type="button" class="btn btn-primary" >AGREGAR</button>
+            <button type="button" class="btn btn-danger" (click)="cerraModalAgregar()">CANCELAR</button>
+            </div>
+        </div>
+        </div>
+    </div>
+</div>
+
+
+<!--MODAL PARA EDITAR EMPRESA-->
+<div *ngIf="modalVerEmpresa">
+    <div class="modal fade show" tabindex="-1" role="dialog" aria-labelledby="exampleModalLiveLabel" style="display: block; padding-right: 17px;">
+        <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+            <h3 class="modal-title">Datos de la empresa</h3>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close" (click)="cerrarModalVerEmpresa()">
+                <span aria-hidden="true">&times;</span>
+            </button>
+            </div>
+            <div class="modal-body">
+            <p>Modal body text goes here.</p>
+            </div>
+            <div class="modal-footer">
+            <button type="button" class="btn btn-primary" (click)="cerrarModalVerEmpresa()">OK</button>
+            </div>
+        </div>
+        </div>
+    </div>
+</div>
