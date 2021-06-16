@@ -1,6 +1,8 @@
 # Apirest
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 12.0.2.
+Angular application to consume a rest API from the following repository: https://github.com/SantiagoMonsalve42/apirest 
+I am always open to collaborators who can make a pull request :D
 
 ## Development server
 
