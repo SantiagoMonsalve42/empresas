@@ -56,7 +56,7 @@
             <p>Modal body text goes here.</p>
             </div>
             <div class="modal-footer">
-            <button type="button" class="btn btn-primary" (click)="cerrarModalVerEmpresa()">OK</button>
+            <button type="button" class="btn btn-success" (click)="cerrarModalVerEmpresa()">OK</button>
             </div>
         </div>
         </div>
@@ -74,11 +74,37 @@
                 <span aria-hidden="true">&times;</span>
             </button>
             </div>
-            <div class="modal-body">
-            <p>Modal body text goes here.</p>
+            <div class="modal-body text-inputs">
+                <div class="row">
+                    <div class="col-sm-12 col-md-12 col-lg-6 col-xl-6 col-xxl-6">
+                        <label >Tipo de documento</label>
+                        <select class="form-select form-select-sm" aria-label=".form-select-sm example">
+                            <option *ngFor="let documento of listadoDocumentos" 
+                                    [value]="documento.id_tipo_documento" 
+                                    (ngModel)="empresa.id_tipo_documento"
+                             >{{documento.tipo_documento}}</option>
+                        </select>
+                    </div>
+                    <div class="col-sm-12 col-md-12 col-lg-6 col-xl-6 col-xxl-6">
+                        <label >Numero de documento</label>
+                        <input type="number" class="form-control" ng-model="empresa.numero_documento">
+                    </div>
+                    <div class="col-sm-12 col-md-12 col-lg-6 col-xl-6 col-xxl-6">
+                        <label >Nombre de la empresa</label>
+                        <input type="text" class="form-control" ng-model="empresa.nombre">
+                    </div>
+                    <div class="col-sm-12 col-md-12 col-lg-6 col-xl-6 col-xxl-6">
+                        <label >Correo de la empresa</label>
+                        <input type="text" class="form-control" ng-model="empresa.correo">
+                    </div>
+                    <div class="col-12">
+                        <label >Teléfono de la empresa</label>
+                        <input type="text" class="form-control" ng-model="empresa.telefono_empresa">
+                    </div>
+                </div>
             </div>
             <div class="modal-footer">
-            <button type="button" class="btn btn-primary" >AGREGAR</button>
+            <button type="button" class="btn btn-primary" (click)="cargarInformacionEmpresa()">AGREGAR</button>
             <button type="button" class="btn btn-danger" (click)="cerraModalAgregar()">CANCELAR</button>
             </div>
         </div>
