@@ -17,5 +17,8 @@ export class ServiciosEmpresa {
     return this.http.get<Empresa[]>(url);
   }
 
-
+  agregarEmpresa(empresa: Empresa){
+    const url=this.url+"/empresa";
+    return this.http.post(url,empresa);
+  }
 }
