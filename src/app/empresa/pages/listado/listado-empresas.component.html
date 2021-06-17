@@ -32,8 +32,8 @@
                 <td>{{empresa.nombre}}</td>
                 <td>{{empresa.correo}}</td>
                 <td>{{empresa.telefono_empresa}}</td>
-                <td><button type="button" class="btn btn-info" (click)="mostrarDatosEmpresa()"><img src="assets/images/ver.png" class="icon-table" ></button></td>
-                <td><button type="button" class="btn btn-warning"><img src="assets/images/editar.png" class="icon-table" ></button></td>
+                <td><button type="button" class="btn btn-info" (click)="mostrarDatosEmpresa(empresa.id_empresa)"><img src="assets/images/ver.png" class="icon-table" ></button></td>
+                <td><button type="button" class="btn btn-warning" (click)="mostrarDatosEmpresaEdicion(empresa.id_empresa)"><img src="assets/images/editar.png" class="icon-table" ></button></td>
               </tr>
             </tbody>
           </table>
@@ -52,8 +52,33 @@
                 <span aria-hidden="true">&times;</span>
             </button>
             </div>
-            <div class="modal-body">
-            <p>Modal body text goes here.</p>
+            <div class="modal-body text-inputs">
+                <div class="row">
+                    
+                    <div class="col-sm-12 col-md-12 col-lg-6 col-xl-6 col-xxl-6">
+                        <label >Tipo de documento</label>
+                        
+                        <input type="text" class="form-control" name="numero_documento" [(ngModel)]="nuevaEmpresa.tipo_documento" readonly>
+                    </div>
+                    <div class="col-sm-12 col-md-12 col-lg-6 col-xl-6 col-xxl-6">
+                        <label >Numero de documento</label>
+                        <input type="text" class="form-control" name="numero_documento" [(ngModel)]="nuevaEmpresa.numero_documento" readonly>
+                    </div>
+                    <div class="col-sm-12 col-md-12 col-lg-6 col-xl-6 col-xxl-6">
+                        <label >Nombre de la empresa</label>
+                        <input type="text" class="form-control" name="nombre" [(ngModel)]="nuevaEmpresa.nombre" readonly>
+                    </div>
+                    <div class="col-sm-12 col-md-12 col-lg-6 col-xl-6 col-xxl-6">
+                        <label >Teléfono de la empresa</label>
+                        <input type="text" class="form-control" [(ngModel)]="nuevaEmpresa.telefono_empresa" name="telefono_empresa" readonly>
+                    </div>
+                    <div class="col-12">
+                        <label >Correo de la empresa</label>
+                        <input type="text" class="form-control" name="correo" [(ngModel)]="nuevaEmpresa.correo" readonly>
+                    </div>
+                
+           
+                  </div>
             </div>
             <div class="modal-footer">
             <button type="button" class="btn btn-success" (click)="cerrarModalVerEmpresa()">OK</button>
@@ -66,69 +91,100 @@
 <!--MODAL PARA AGREGAR EMPRESA-->
 <div *ngIf="modalAgregarEmpresa">
     <div class="modal fade show" tabindex="-1" role="dialog" aria-labelledby="exampleModalLiveLabel" style="display: block; padding-right: 17px;">
-        <div class="modal-dialog modal-lg" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-            <h3 class="modal-title">Agregar empresa</h3>
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close" (click)="cerraModalAgregar()">
-                <span aria-hidden="true">&times;</span>
-            </button>
-            </div>
-            <div class="modal-body text-inputs">
-                <div class="row">
-                    <div class="col-sm-12 col-md-12 col-lg-6 col-xl-6 col-xxl-6">
-                        <label >Tipo de documento</label>
-                        <select class="form-select form-select-sm" aria-label=".form-select-sm example">
-                            <option *ngFor="let documento of listadoDocumentos" 
-                                    [value]="documento.id_tipo_documento" 
-                                    (ngModel)="empresa.id_tipo_documento"
-                             >{{documento.tipo_documento}}</option>
-                        </select>
+                <div class="modal-dialog modal-lg" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                    <h3 class="modal-title">Agregar empresa</h3>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close" (click)="cerraModalAgregar()">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
                     </div>
-                    <div class="col-sm-12 col-md-12 col-lg-6 col-xl-6 col-xxl-6">
-                        <label >Numero de documento</label>
-                        <input type="number" class="form-control" ng-model="empresa.numero_documento">
+                    <div class="modal-body text-inputs">
+            
+                            <div class="row">
+                            
+                                <div class="col-sm-12 col-md-12 col-lg-6 col-xl-6 col-xxl-6">
+                                    <label >Tipo de documento</label>
+                                    <select class="form-select" aria-label=".form-select-sm example" [(ngModel)]="nuevaEmpresa.id_tipo_documento">
+                                        <option *ngFor="let documento of listadoDocumentos" 
+                                                [value]="documento.id_tipo_documento" 
+                                        >{{documento.tipo_documento}}</option>
+                                    </select>
+                                </div>
+                                <div class="col-sm-12 col-md-12 col-lg-6 col-xl-6 col-xxl-6">
+                                    <label >Numero de documento</label>
+                                    <input type="number" class="form-control" name="numero_documento" [(ngModel)]="nuevaEmpresa.numero_documento">
+                                </div>
+                                <div class="col-sm-12 col-md-12 col-lg-6 col-xl-6 col-xxl-6">
+                                    <label >Nombre de la empresa</label>
+                                    <input type="text" class="form-control" name="nombre" [(ngModel)]="nuevaEmpresa.nombre" pattern="^[a-zA-Z]+(([',. -][a-zA-Z ])?[a-zA-Z]*)*$" >
+                                </div>
+                                <div class="col-sm-12 col-md-12 col-lg-6 col-xl-6 col-xxl-6">
+                                    <label >Teléfono de la empresa</label>
+                                    <input type="number" class="form-control" [(ngModel)]="nuevaEmpresa.telefono_empresa" name="telefono_empresa" >
+                                </div>
+                                <div class="col-12">
+                                    <label >Correo de la empresa</label>
+                                    <input type="email" class="form-control" name="correo" [(ngModel)]="nuevaEmpresa.correo" pattern='[a-zA-Z0-9+_.-]+@[a-zA-Z0-9.-]+$'>
+                                </div>
+                            </div>
+                        
+                
+                    <div class="modal-footer">
+                    <button type="submit" class="btn btn-primary" (click)="cargarInformacionEmpresa()">AGREGAR</button>
+                    <button type="button" class="btn btn-danger" (click)="cerraModalAgregar()">CANCELAR</button>
                     </div>
-                    <div class="col-sm-12 col-md-12 col-lg-6 col-xl-6 col-xxl-6">
-                        <label >Nombre de la empresa</label>
-                        <input type="text" class="form-control" ng-model="empresa.nombre">
-                    </div>
-                    <div class="col-sm-12 col-md-12 col-lg-6 col-xl-6 col-xxl-6">
-                        <label >Correo de la empresa</label>
-                        <input type="text" class="form-control" ng-model="empresa.correo">
-                    </div>
-                    <div class="col-12">
-                        <label >Teléfono de la empresa</label>
-                        <input type="text" class="form-control" ng-model="empresa.telefono_empresa">
-                    </div>
+
+                </div>
                 </div>
             </div>
-            <div class="modal-footer">
-            <button type="button" class="btn btn-primary" (click)="cargarInformacionEmpresa()">AGREGAR</button>
-            <button type="button" class="btn btn-danger" (click)="cerraModalAgregar()">CANCELAR</button>
-            </div>
-        </div>
-        </div>
     </div>
 </div>
 
 
 <!--MODAL PARA EDITAR EMPRESA-->
-<div *ngIf="modalVerEmpresa">
+<div *ngIf="modalEditarEmpresa">
     <div class="modal fade show" tabindex="-1" role="dialog" aria-labelledby="exampleModalLiveLabel" style="display: block; padding-right: 17px;">
         <div class="modal-dialog modal-lg" role="document">
         <div class="modal-content">
             <div class="modal-header">
             <h3 class="modal-title">Datos de la empresa</h3>
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close" (click)="cerrarModalVerEmpresa()">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close" (click)="cerrarModalEdicionEmpresa()">
                 <span aria-hidden="true">&times;</span>
             </button>
             </div>
-            <div class="modal-body">
-            <p>Modal body text goes here.</p>
+            <div class="modal-body text-inputs">
+                <div class="row">
+                    
+                    <div class="col-sm-12 col-md-12 col-lg-6 col-xl-6 col-xxl-6">
+                        <label >Tipo de documento</label>
+                        
+                        <input type="text" class="form-control" name="numero_documento" [(ngModel)]="nuevaEmpresa.tipo_documento" readonly>
+                    </div>
+                    <div class="col-sm-12 col-md-12 col-lg-6 col-xl-6 col-xxl-6">
+                        <label >Numero de documento</label>
+                        <input type="text" class="form-control" name="numero_documento" [(ngModel)]="nuevaEmpresa.numero_documento" readonly>
+                    </div>
+                    <div class="col-sm-12 col-md-12 col-lg-6 col-xl-6 col-xxl-6">
+                        <label >Nombre de la empresa</label>
+                        <input type="text" class="form-control" name="nombre" [(ngModel)]="nuevaEmpresa.nombre" readonly>
+                    </div>
+                    <div class="col-sm-12 col-md-12 col-lg-6 col-xl-6 col-xxl-6">
+                        <label >Teléfono de la empresa</label>
+                        <input type="text" class="form-control" [(ngModel)]="nuevaEmpresa.telefono_empresa" name="telefono_empresa" >
+                    </div>
+                    <div class="col-12">
+                        <label >Correo de la empresa</label>
+                        <input type="text" class="form-control" name="correo" [(ngModel)]="nuevaEmpresa.correo" >
+                    </div>
+                
+           
+                  </div>
             </div>
             <div class="modal-footer">
-            <button type="button" class="btn btn-primary" (click)="cerrarModalVerEmpresa()">OK</button>
+                
+            <button type="button" class="btn btn-primary" (click)="editarInformacionEmpresa()">EDITAR</button>
+            <button type="button" class="btn btn-danger" (click)="cerrarModalEdicionEmpresa()">CANCELAR</button>
             </div>
         </div>
         </div>
