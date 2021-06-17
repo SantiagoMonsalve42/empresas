@@ -7,3 +7,4 @@ export interface Empresa {
     correo:            string;
     telefono_empresa:  string;
 }
+

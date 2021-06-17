@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ListadoEmpresasComponent } from './pages/listado/listado-empresas.component';
+import { FormsModule } from '@angular/forms';
 
 
 
@@ -9,7 +10,8 @@ import { ListadoEmpresasComponent } from './pages/listado/listado-empresas.compo
     ListadoEmpresasComponent
   ],
   imports: [
-    CommonModule
+    CommonModule,
+    FormsModule
   ],
   exports: [
     ListadoEmpresasComponent
