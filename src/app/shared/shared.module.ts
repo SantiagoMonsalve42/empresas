@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { NavbarComponent } from './navbar/navbar.component';
 import { AppRoutingModule } from '../app-routing.module';
-import { FooterComponentComponent } from './footer/footer-component/footer-component.component';
+import { FooterComponentComponent } from './footer-component/footer-component.component';
 
 
 
