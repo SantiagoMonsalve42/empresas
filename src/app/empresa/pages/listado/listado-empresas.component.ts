@@ -22,7 +22,7 @@ export class ListadoEmpresasComponent implements OnInit{
     modalVerEmpresa: boolean= false;
     modalAgregarEmpresa: boolean=false;
     modalEditarEmpresa: boolean=false;
-
+    pageActual:number =1;
 
     nuevaEmpresa: Empresa = {
       id_tipo_documento: "",

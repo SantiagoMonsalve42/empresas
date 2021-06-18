@@ -12,31 +12,32 @@
     <hr>
     <div class="row">
         <div style="overflow-x:auto;">
-        <table class="table table-hover">
-            <thead class="thead-dark">
-              <tr>
-                <th scope="col">Tipo Documento</th>
-                <th scope="col">Numero de documento</th>
-                <th scope="col">Nombre</th>
-                <th scope="col">Correo</th>
-                <th scope="col">Telefono</th>
-                <th></th>
-                <th></th>
-              </tr>
-            </thead>
-            <tbody>
-               
-              <tr *ngFor="let empresa of listadoEmpresas">
-                <td>{{empresa.tipo_documento}}</td>
-                <td>{{empresa.numero_documento}}</td>
-                <td>{{empresa.nombre}}</td>
-                <td>{{empresa.correo}}</td>
-                <td>{{empresa.telefono_empresa}}</td>
-                <td><button type="button" class="btn btn-info" (click)="mostrarDatosEmpresa(empresa.id_empresa)"><img src="assets/images/ver.png" class="icon-table" ></button></td>
-                <td><button type="button" class="btn btn-warning" (click)="mostrarDatosEmpresaEdicion(empresa.id_empresa)"><img src="assets/images/editar.png" class="icon-table" ></button></td>
-              </tr>
-            </tbody>
-          </table>
+                <table class="table table-hover">
+                    <thead class="thead table-dark">
+                    <tr>
+                        <th scope="col">Tipo Documento</th>
+                        <th scope="col">Numero de documento</th>
+                        <th scope="col">Nombre</th>
+                        <th scope="col">Correo</th>
+                        <th scope="col">Telefono</th>
+                        <th></th>
+                        <th></th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    
+                    <tr *ngFor="let empresa of listadoEmpresas |  paginate: { itemsPerPage: 7, currentPage: pageActual }">
+                        <td>{{empresa.tipo_documento}}</td>
+                        <td>{{empresa.numero_documento}}</td>
+                        <td>{{empresa.nombre}}</td>
+                        <td>{{empresa.correo}}</td>
+                        <td>{{empresa.telefono_empresa}}</td>
+                        <td><button type="button" class="btn btn-info" (click)="mostrarDatosEmpresa(empresa.id_empresa)"><img src="assets/images/ver.png" class="icon-table" ></button></td>
+                        <td><button type="button" class="btn btn-warning" (click)="mostrarDatosEmpresaEdicion(empresa.id_empresa)"><img src="assets/images/editar.png" class="icon-table" ></button></td>
+                    </tr>
+                    </tbody>
+                </table>
+            <pagination-controls (pageChange)="pageActual = $event" previousLabel="Anterior" nextLabel="Siguiente"></pagination-controls>
         </div> 
     </div>
 </div>

@@ -9,7 +9,7 @@ import { tiposdocumentos } from 'src/app/shared/interfaces/shared-interfaces';
 })
 export class sharedServices {
 
-  private url: string= 'http://santiagomonsalve42.000webhostapp.com';
+  private url: string= 'http://localhost/apirest';
 
   constructor(private http: HttpClient){}
 

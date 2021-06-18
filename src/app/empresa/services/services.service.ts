@@ -8,9 +8,11 @@ import { Empresa } from '../interfaces/empresa-interface';
 })
 export class ServiciosEmpresa {
 
-  private url: string= 'http://santiagomonsalve42.atspace.cc';
+  private url: string='http://localhost/apirest';
 
-  constructor(private http: HttpClient){}
+  constructor(private http: HttpClient){
+    console.log(this.url);
+  }
 
   leerDatos():Observable <Empresa[]>{
     const url=this.url+"/empresa";

@@ -16,12 +16,14 @@
 
 .modal{
     text-align:center;
-    background-color: rgba(0,0,0,0.7);
+    background-color: rgba(225, 225, 225, 0.939);
+   
     padding:0!important;         
 }
 .contenido{
-    margin-top: 25px;;
+    margin-top: 25px;
 }
 .text-inputs{
     text-align: left;
 }
+
