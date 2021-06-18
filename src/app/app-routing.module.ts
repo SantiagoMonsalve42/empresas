@@ -6,6 +6,7 @@ import { ListadoCargoComponent } from './cargo/pages/listado-cargo/listado-cargo
 import { ListadoPersonaComponent } from './persona/pages/listado-persona/listado-persona.component';
 import { ListadoInstitucionesComponent } from './instituciones/pages/listado-instituciones/listado-instituciones.component';
 
+
 const routes: Routes = [
   {
     path:'',

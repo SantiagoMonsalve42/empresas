@@ -8,6 +8,9 @@ import { HttpClientModule } from '@angular/common/http';
 
 import { SharedModule } from './shared/shared.module';
 import { EmpresaModule } from './empresa/empresa.module';
+import { InstitucionesModule } from './instituciones/instituciones.module';
+
+
 
 @NgModule({
   declarations: [
@@ -18,7 +21,8 @@ import { EmpresaModule } from './empresa/empresa.module';
     AppRoutingModule,
     HttpClientModule,
     SharedModule,
-    EmpresaModule
+    EmpresaModule,
+    InstitucionesModule
   ],
   bootstrap: [AppComponent]
 })

@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { ListadoEmpresasComponent } from './pages/listado/listado-empresas.component';
 import { FormsModule } from '@angular/forms';
 
+import { NgxPaginationModule } from 'ngx-pagination';
 
 
 @NgModule({
@@ -11,10 +12,11 @@ import { FormsModule } from '@angular/forms';
   ],
   imports: [
     CommonModule,
-    FormsModule
+    FormsModule,
+    NgxPaginationModule
   ],
   exports: [
-    ListadoEmpresasComponent
+    ListadoEmpresasComponent,
   ]
 })
 export class EmpresaModule { }
