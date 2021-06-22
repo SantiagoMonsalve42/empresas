@@ -9,6 +9,8 @@ import { HttpClientModule } from '@angular/common/http';
 import { SharedModule } from './shared/shared.module';
 import { EmpresaModule } from './empresa/empresa.module';
 import { InstitucionesModule } from './instituciones/instituciones.module';
+import { CargoModule } from './cargo/cargo.module';
+import { PersonaModule } from './persona/persona.module';
 
 
 
@@ -22,7 +24,9 @@ import { InstitucionesModule } from './instituciones/instituciones.module';
     HttpClientModule,
     SharedModule,
     EmpresaModule,
-    InstitucionesModule
+    InstitucionesModule,
+    CargoModule,
+    PersonaModule
   ],
   bootstrap: [AppComponent]
 })

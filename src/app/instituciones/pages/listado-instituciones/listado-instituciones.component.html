@@ -23,7 +23,7 @@
                     <tbody>
                     
                         <tr *ngFor="let institucion of instituciones |  paginate: { itemsPerPage: 7, currentPage: pageActual }">
-                            <td>{{institucion.nombre}}</td>
+                            <td>{{institucion.nombre | titlecase}}</td>
                             <td><button type="button" class="btn btn-warning" (click)="abrirModalEdicion(institucion.id_institucion_educativa)"><img src="assets/images/editar.png" class="icon-table" ></button></td>
                             <td><button type="button" class="btn btn-danger" (click)="eliminarInstitucion(institucion.id_institucion_educativa)" ><img src="assets/images/eliminar.png" class="icon-table" ></button></td>
                         </tr>

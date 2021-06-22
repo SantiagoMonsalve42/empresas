@@ -1,6 +1,11 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { FormsModule } from '@angular/forms';
+
+
 import { ListadoCargoComponent } from './pages/listado-cargo/listado-cargo.component';
+
+import { NgxPaginationModule } from 'ngx-pagination';
 
 
 
@@ -9,7 +14,9 @@ import { ListadoCargoComponent } from './pages/listado-cargo/listado-cargo.compo
     ListadoCargoComponent
   ],
   imports: [
-    CommonModule
+    CommonModule,
+    FormsModule,
+    NgxPaginationModule
   ],
   exports:[
     ListadoCargoComponent
