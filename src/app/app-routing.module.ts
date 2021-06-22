@@ -5,6 +5,9 @@ import { InformacionComponent } from './main/pages/informacion/informacion.compo
 import { ListadoCargoComponent } from './cargo/pages/listado-cargo/listado-cargo.component';
 import { ListadoPersonaComponent } from './persona/pages/listado-persona/listado-persona.component';
 import { ListadoInstitucionesComponent } from './instituciones/pages/listado-instituciones/listado-instituciones.component';
+import { AgregarComponent } from './persona/pages/agregar/agregar.component';
+import { LeerComponent } from './persona/pages/leer/leer.component';
+import { InicioComponent } from './persona/pages/inicio/inicio.component';
 
 
 const routes: Routes = [
@@ -25,18 +28,25 @@ const routes: Routes = [
   },
   {
     path:'personas',
-    component: ListadoPersonaComponent,
-    pathMatch: 'full'
+    component: InicioComponent ,
+    children: [
+      { path: '', redirectTo: 'lista', pathMatch: 'full' },
+      { path: 'datos/:idPersona', component: LeerComponent },
+      { path: 'agregar', component: AgregarComponent },
+      { path: 'lista', component: ListadoPersonaComponent },
+      { path: '**', component: ListadoPersonaComponent }, 
+    ]
   },
   {
     path:'instituciones',
     component: ListadoInstitucionesComponent,
     pathMatch: 'full'
   },
-  {
+  { 
     path: '**',
-    redirectTo: ''
+     component: InformacionComponent 
   }
+ 
 ];
 
 @NgModule({

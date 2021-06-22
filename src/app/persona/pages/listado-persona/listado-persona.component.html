@@ -1,1 +1,76 @@
-<p>listado-persona works!</p>
+<div class="container contenido">
+
+    <div class="row">
+        <div class="col-sm-12 col-md-9 col-lg-9 col-xl-9 col-xxl-9">
+            <h2>Listado de personas</h2>
+        </div>
+        <div class="col-sm-12 col-md-3 col-lg-3 col-xl-3 col-xxl-3 d-grid gap-2 d-md-flex justify-content-md-end">
+            <button type="button" class="btn btn-success pull-right" routerLink="/personas/agregar">Agregar persona</button>
+        </div>
+       
+    </div>
+    <hr>
+    <div class="row">
+        <div style="overflow-x:auto;">
+                <table class="table table-hover">
+                    <thead class="thead table-dark">
+                    <tr>
+                        <th scope="col">Tipo Documento</th>
+                        <th scope="col">Numero Documento</th>
+                        <th scope="col">Nombres</th>
+                        <th scope="col">Apellidos</th>
+                        <th scope="col">Correo</th>                       
+                        <th scope="col">Fecha Nacimiento</th>
+                        <th scope="col">Cargo</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    
+                    <tr *ngFor="let persona of listaPersonas |  paginate: { itemsPerPage: 7, currentPage: pageActual }"  (click)="navegar(persona.id_persona)">
+                        <td>{{persona.tipo_documento | uppercase}}</td>
+                        <td>{{persona.numero_documento | titlecase}}</td>
+                        <td>{{persona.nombre1 | titlecase}} {{persona.nombre2 | titlecase}}</td>
+                        <td>{{persona.apellido1 | titlecase}} {{persona.apellido2 | titlecase}}</td>
+                        <td>{{persona.correo | lowercase}}</td>
+                        <td>{{persona.fecha_nacimiento | lowercase}}</td>
+                        <td>{{persona.descripcion_cargo | titlecase}}</td>
+                    </tr>
+                    </tbody>
+                </table>
+       <pagination-controls (pageChange)="pageActual = $event" previousLabel="Anterior" nextLabel="Siguiente"></pagination-controls>
+        </div> 
+    </div>
+</div>
+
+<!--MODAL PARA AGREGAR 
+<div *ngIf="modalAgregar">
+    <div class="modal fade show" tabindex="-1" role="dialog" aria-labelledby="exampleModalLiveLabel" style="display: block; padding-right: 17px;">
+        <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+            <h3 class="modal-title">Agregar cargo</h3>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close" (click)="cerrarModalAgregar()">
+                <span aria-hidden="true">&times;</span>
+            </button>
+            </div>
+            <div class="modal-body text-inputs">
+                <div class="row">
+                    
+                    <div class="col-12">
+                        <label >Nombre del cargo</label>
+                        <input type="text" class="form-control" name="nombre" [(ngModel)]="cargo.descripcion_cargo" >
+                    </div>
+                
+           
+                  </div>
+            </div>
+            <div class="modal-footer">
+            <button type="button" class="btn btn-primary" (click)="agregarCargoService()" >AGREGAR</button>
+            <button type="button" class="btn btn-danger" (click)="cerrarModalAgregar()">CANCELAR</button>
+            </div>
+        </div>
+        </div>
+    </div>
+</div>
+
+-->
