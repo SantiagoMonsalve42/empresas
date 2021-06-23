@@ -12,4 +12,13 @@ export interface persona{
     correo: string;
     fecha_nacimiento: string;
     descripcion_cargo: string;
+    nombre_empresa: string;
+}
+
+export interface experiencia{
+    id_experiencia_laboral: string;
+    id_persona: string;
+    descripcion: string;
+    fecha_inicio: string;
+    fecha_final: string;
 }

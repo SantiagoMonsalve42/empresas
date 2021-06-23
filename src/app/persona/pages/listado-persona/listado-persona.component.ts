@@ -32,7 +32,6 @@ export class ListadoPersonaComponent implements OnInit{
         );
   }
   navegar(ids : string){
-    console.log(ids);
     this.router.navigate(["/personas/datos/"+ids]);
   }
 }

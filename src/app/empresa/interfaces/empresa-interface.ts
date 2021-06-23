@@ -3,7 +3,7 @@ export interface Empresa {
     tipo_documento:    string;
     id_empresa:        string;
     numero_documento:  string;
-    nombre:            string;
+    nombre_empresa:            string;
     correo:            string;
     telefono_empresa:  string;
 }

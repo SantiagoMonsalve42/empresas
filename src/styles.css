@@ -27,4 +27,6 @@
 .text-inputs{
     text-align: left;
 }
-
+.divisor{
+    border-top: 5px dotted black;
+}

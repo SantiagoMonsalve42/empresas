@@ -31,7 +31,7 @@ const routes: Routes = [
     component: InicioComponent ,
     children: [
       { path: '', redirectTo: 'lista', pathMatch: 'full' },
-      { path: 'datos/:idPersona', component: LeerComponent },
+      { path: 'datos/:id', component: LeerComponent },
       { path: 'agregar', component: AgregarComponent },
       { path: 'lista', component: ListadoPersonaComponent },
       { path: '**', component: ListadoPersonaComponent }, 

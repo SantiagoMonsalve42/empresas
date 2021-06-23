@@ -29,7 +29,7 @@ export class ListadoEmpresasComponent implements OnInit{
       tipo_documento:    "",
       id_empresa:        "",
       numero_documento:  "",
-      nombre:            "",
+      nombre_empresa:    "",
       correo:            "",
       telefono_empresa:  ""
     };
@@ -69,7 +69,7 @@ export class ListadoEmpresasComponent implements OnInit{
         tipo_documento:    "",
         id_empresa:        "",
         numero_documento:  "",
-        nombre:            "",
+        nombre_empresa:    "",
         correo:            "",
         telefono_empresa:  ""
       }
@@ -117,7 +117,7 @@ export class ListadoEmpresasComponent implements OnInit{
         this.alertaError('Digite un número de documento');
         return false;
       }
-      if(this.nuevaEmpresa.nombre == ""){
+      if(this.nuevaEmpresa.nombre_empresa == ""){
         this.alertaError('Digite un nombre para la empresa');
         return false;
       }
