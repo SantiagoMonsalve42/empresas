@@ -22,3 +22,12 @@ export interface experiencia{
     fecha_inicio: string;
     fecha_final: string;
 }
+
+export interface estudio{
+    id_estudios: string;
+    id_persona: string;
+    id_institucion_educativa: string;
+    descripcion: string;
+    fecha_inicio: string;
+    fecha_final: string;
+}

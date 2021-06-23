@@ -6,7 +6,6 @@ import { ListadoCargoComponent } from './cargo/pages/listado-cargo/listado-cargo
 import { ListadoPersonaComponent } from './persona/pages/listado-persona/listado-persona.component';
 import { ListadoInstitucionesComponent } from './instituciones/pages/listado-instituciones/listado-instituciones.component';
 import { AgregarComponent } from './persona/pages/agregar/agregar.component';
-import { LeerComponent } from './persona/pages/leer/leer.component';
 import { InicioComponent } from './persona/pages/inicio/inicio.component';
 
 
@@ -31,7 +30,6 @@ const routes: Routes = [
     component: InicioComponent ,
     children: [
       { path: '', redirectTo: 'lista', pathMatch: 'full' },
-      { path: 'datos/:id', component: LeerComponent },
       { path: 'agregar', component: AgregarComponent },
       { path: 'lista', component: ListadoPersonaComponent },
       { path: '**', component: ListadoPersonaComponent }, 

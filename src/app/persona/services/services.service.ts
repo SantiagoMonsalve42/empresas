@@ -3,7 +3,7 @@ import { HttpClient, HttpParams } from '@angular/common/http';
 
 import { Observable } from 'rxjs';
 
-import { experiencia, persona } from '../interfaces/persona-interface';
+import { experiencia, persona, estudio } from '../interfaces/persona-interface';
 
 @Injectable({
   providedIn: 'root'
@@ -36,11 +36,11 @@ export class PersonaService {
     
   }
 
-  leerPersonaPorID(id: any): Observable<persona>{
+  leerPersonaPorID(id: string): Observable<persona[]>{
     const url=this.url+"/persona";
     const params = new HttpParams()
           .set('id',id);
-   return this.http.get<persona>(url,{params});
+   return this.http.get<persona[]>(url,{params});
   }
 
   leerExperiencias(id: string): Observable<experiencia[]>{
@@ -49,4 +49,22 @@ export class PersonaService {
           .set('id_p',id);
     return this.http.get<experiencia[]>(url,{params});     
   }
+
+  leerEducacion(id: string):Observable<estudio[]>{
+    const url=this.url+"/estudios";
+    const params = new HttpParams()
+          .set('id_p',id);
+    return this.http.get<estudio[]>(url,{params});     
+  }
+
+  editarCorreo(persona:persona):Observable<persona[]>{
+
+    const url=this.url+"/persona";
+    const params = new HttpParams()
+          .set('id',persona.id_persona)
+          .set('correo',persona.correo);
+    return this.http.put<persona[]>(url,params);
+    
+  }
+
 }

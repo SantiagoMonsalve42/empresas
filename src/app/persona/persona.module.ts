@@ -7,7 +7,6 @@ import { NgxPaginationModule } from 'ngx-pagination';
 import { ListadoPersonaComponent } from './pages/listado-persona/listado-persona.component';
 import { AppRoutingModule } from '../app-routing.module';
 import { AgregarComponent } from './pages/agregar/agregar.component';
-import { LeerComponent } from './pages/leer/leer.component';
 import { InicioComponent } from './pages/inicio/inicio.component'
 
 
@@ -18,7 +17,6 @@ import { InicioComponent } from './pages/inicio/inicio.component'
   declarations: [
     ListadoPersonaComponent,
     AgregarComponent,
-    LeerComponent,
     InicioComponent
   ],
   imports: [
