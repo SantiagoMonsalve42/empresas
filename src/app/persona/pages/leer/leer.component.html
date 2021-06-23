@@ -1,1 +1,88 @@
-<p>leer works!</p>
+<div class="container contenido">
+    <h3>Datos Personales</h3>
+          <hr>
+             <div class="row">
+                    <div class="col-sm-12 col-md-12 col-lg-6 col-xl-6 col-xxl-6">
+                         <label >Tipo de documento</label>
+                         <input type="text" class="form-control" [(ngModel)]="persona.tipo_documento" readonly>
+                    </div>   
+                    <div class="col-sm-12 col-md-12 col-lg-6 col-xl-6 col-xxl-6">
+                        <label >Número de documento</label>
+                        <input type="number" class="form-control" [(ngModel)]="persona.numero_documento" readonly>
+                    </div>
+                    
+                    <div class="col-sm-12 col-md-12 col-lg-6 col-xl-6 col-xxl-6">
+                        <label >Primer nombre</label>
+                        <input type="text" class="form-control" [(ngModel)]="persona.nombre1" readonly>
+                    </div>
+                    
+                    <div class="col-sm-12 col-md-12 col-lg-6 col-xl-6 col-xxl-6">
+                        <label >Segundo nombre</label>
+                        <input type="text" class="form-control" [(ngModel)]="persona.nombre2" readonly >
+                    </div>
+                    
+                    <div class="col-sm-12 col-md-12 col-lg-6 col-xl-6 col-xxl-6">
+                        <label >Primer apellido</label>
+                        <input type="text" class="form-control" [(ngModel)]="persona.apellido1" readonly>
+                    </div>
+                    
+                    <div class="col-sm-12 col-md-12 col-lg-6 col-xl-6 col-xxl-6">
+                        <label >Segundo apellido</label>
+                        <input type="text" class="form-control" [(ngModel)]="persona.apellido2" readonly>
+                    </div>
+
+                    <div class="col-sm-12 col-md-12 col-lg-6 col-xl-6 col-xxl-6">
+                        <label >Empresa en la que trabaja</label>
+                        <input type="text" class="form-control" [(ngModel)]="persona.nombre_empresa" readonly>
+                    </div>
+
+                    <div class="col-sm-12 col-md-12 col-lg-6 col-xl-6 col-xxl-6">
+                        <label >Cargo que ocupa</label>
+                        <input type="text" class="form-control" [(ngModel)]="persona.descripcion_cargo" readonly>
+                    </div>
+
+                    <div class="col-sm-12 col-md-12 col-lg-6 col-xl-6 col-xxl-6">
+                        <label >Correo</label>
+                        <input type="mail" class="form-control"  [(ngModel)]="persona.correo" required>
+                    </div>
+
+                    <div class="col-sm-12 col-md-12 col-lg-6 col-xl-6 col-xxl-6">
+                        <label >Fecha de nacimiento</label>
+                        <input type="date" class="form-control" [(ngModel)]="persona.fecha_nacimiento" readonly>
+                    </div>
+            </div>
+            <br>
+            <div class="row">
+                <div class="col-12 modal-footer">
+                    <button type="submit" class="btn btn-primary" >ACTUALIZAR CORREO</button>
+                </div>
+            </div>
+            <hr>
+            <div class="row">
+                <div class="col-sm-12 col-md-9 col-lg-9 col-xl-9 col-xxl-9">
+                    <h2>Experiencia laboral</h2>
+                </div>
+                <div class="col-sm-12 col-md-3 col-lg-3 col-xl-3 col-xxl-3 d-grid gap-2 d-md-flex justify-content-md-end">
+                    <button type="button" class="btn btn-primary pull-right"(click)="agregarExperiencia()" >AGREGAR EXPERIENCIA</button>
+                </div>
+            </div>
+            <hr>
+            <div *ngFor="let experiencia of experiencias">
+                <div class="row">
+                    <div class="col-12">
+                        <label >Descripcion</label>
+                        <input type="text" class="form-control" [value]="experiencia.descripcion" readonly>
+                    </div>
+                    <div class="col-sm-12 col-md-12 col-lg-6 col-xl-6 col-xxl-6">
+                        <label >Fecha inicio</label>
+                        <input type="text" class="form-control" [value]="experiencia.fecha_inicio" readonly>
+                    </div>
+                    <div class="col-sm-12 col-md-12 col-lg-6 col-xl-6 col-xxl-6">
+                        <label >Fecha final</label>
+                        <input type="text" class="form-control" [value]="experiencia.fecha_final" readonly>
+                    </div>
+                </div>
+                <hr>
+            </div>
+
+</div>

@@ -1,1 +1,77 @@
-<p>agregar works!</p>
+<div class="container contenido">
+    <h1>Agregar persona</h1>
+    <hr>
+            <div class="row">
+                    
+                    <div class="col-sm-12 col-md-12 col-lg-6 col-xl-6 col-xxl-6">
+                        <label >Tipo de documento</label>
+                        <select class="form-select" aria-label=".form-select-sm example" [(ngModel)]="nuevaPersona.id_tipo_documento" required>
+                            <option *ngFor="let documento of listaDocumentos" 
+                                    [value]="documento.id_tipo_documento" 
+                            >{{documento.tipo_documento}}</option>
+                        </select>
+                    </div>
+                    
+                    <div class="col-sm-12 col-md-12 col-lg-6 col-xl-6 col-xxl-6">
+                        <label >Número de documento</label>
+                        <input type="number" name="numerodoc" class="form-control" [(ngModel)]="nuevaPersona.numero_documento" required>
+                    </div>
+                    
+                    <div class="col-sm-12 col-md-12 col-lg-6 col-xl-6 col-xxl-6">
+                        <label >Primer nombre</label>
+                        <input type="text" name="pnombre" class="form-control" [(ngModel)]="nuevaPersona.nombre1" required>
+                    </div>
+                    
+                    <div class="col-sm-12 col-md-12 col-lg-6 col-xl-6 col-xxl-6">
+                        <label >Segundo nombre</label>
+                        <input type="text" name="snombre" class="form-control" [(ngModel)]="nuevaPersona.nombre2" >
+                    </div>
+                    
+                    <div class="col-sm-12 col-md-12 col-lg-6 col-xl-6 col-xxl-6">
+                        <label >Primer apellido</label>
+                        <input type="text" name="papellido" class="form-control" [(ngModel)]="nuevaPersona.apellido1" required>
+                    </div>
+                    
+                    <div class="col-sm-12 col-md-12 col-lg-6 col-xl-6 col-xxl-6">
+                        <label >Segundo apellido</label>
+                        <input type="text" name="sapellido" class="form-control" [(ngModel)]="nuevaPersona.apellido2">
+                    </div>
+
+                    <div class="col-sm-12 col-md-12 col-lg-6 col-xl-6 col-xxl-6">
+                        <label >Empresa en la que trabaja</label>
+                        <select class="form-select" aria-label=".form-select-sm example" [(ngModel)]="nuevaPersona.id_empresa" required>
+                            <option *ngFor="let empresa of listaEmpresas" 
+                                    [value]="empresa.id_empresa" 
+                            >{{empresa.nombre_empresa}}</option>
+                        </select>
+                    </div>
+
+                    <div class="col-sm-12 col-md-12 col-lg-6 col-xl-6 col-xxl-6">
+                        <label >Cargo que ocupa</label>
+                        <select class="form-select" aria-label=".form-select-sm example"  [(ngModel)]="nuevaPersona.id_cargo" required>
+                            <option *ngFor="let cargo of listaCargos" 
+                                    [value]="cargo.id_cargo" 
+                            >{{cargo.descripcion_cargo}}</option>
+                        </select>
+                    </div>
+
+                    <div class="col-sm-12 col-md-12 col-lg-6 col-xl-6 col-xxl-6">
+                        <label >Correo</label>
+                        <input type="mail" name="correo" class="form-control"  [(ngModel)]="nuevaPersona.correo" required>
+                    </div>
+
+                    <div class="col-sm-12 col-md-12 col-lg-6 col-xl-6 col-xxl-6">
+                        <label >Fecha de nacimiento</label>
+                        <input type="date" name="fnacimiento" class="form-control" [(ngModel)]="nuevaPersona.fecha_nacimiento" required>
+                    </div>
+
+            </div>
+            <br>
+            <div class="row">
+                <div class="col-12 modal-footer">
+                    
+                    <button type="reset" class="btn btn-danger" (click)="limpiarFormulario()">LIMPIAR FORMULARIO</button>
+                    <button type="submit" class="btn btn-primary" (click)="agregarPersonaServices()">AGREGAR</button>
+                </div>
+            </div>
+</div>
