@@ -79,8 +79,8 @@ export class ListadoInstitucionesComponent{
   editarInstitucion(){
     this.service.editarInstitucion(this.institucion)
         .subscribe(
-          (data) =>{
-            if(data == null){
+          (data: any) =>{
+            if(data.status === "ok"){
               this.leerInstitucionesService();
               this.alertaCorrecta("Institución educativa editada correctamente");
               this.cerrarModalEdicion();
@@ -114,8 +114,8 @@ export class ListadoInstitucionesComponent{
 
     this.service.eliminarInstitucion(id)
         .subscribe(
-          (data) => {
-            if(data == null){
+          (data: any) => {
+            if(data.status === "ok"){
               this.leerInstitucionesService();
               this.alertaCorrecta("Institución educativa eliminada correctamente");
             }
@@ -132,8 +132,8 @@ export class ListadoInstitucionesComponent{
     if(this.validarFormulario()){
         this.service.crearInstitucion(this.institucion)
           .subscribe(
-            (data) => {
-              if(data == null){
+            (data: any) => {
+              if(data.status === "ok"){
                 this.leerInstitucionesService();
                 this.cerrarModalAgregar();
                 this.alertaCorrecta("Institucion educativa creada correctamete");
@@ -155,8 +155,9 @@ export class ListadoInstitucionesComponent{
   leerInstitucionesService():void {
     this.service.leerInstituciones()
         .subscribe(
-          (data) => {
-            this.instituciones=data;
+          (data: any) => {
+            this.instituciones=data.resul;
+            console.log(data)
           },
           (error) => {
             console.log(error);
@@ -167,8 +168,8 @@ export class ListadoInstitucionesComponent{
   leerInstitucionService(id: string):void {
     this.service.leerInstitucion(id)
         .subscribe(
-          (data) => {
-            this.institucion=data;
+          (data: any) => {
+            this.institucion=data.resul;
           },
           (error) => {
             console.log(error);

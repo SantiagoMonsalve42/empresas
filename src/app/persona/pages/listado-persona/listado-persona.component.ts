@@ -23,8 +23,8 @@ export class ListadoPersonaComponent implements OnInit{
   leerPersonas(): void{
     this.PersonaService.leerPersonas()
         .subscribe(
-          (data) =>{
-            this.listaPersonas=data;
+          (data : any) =>{
+            this.listaPersonas=data.resul;
           },
           (error)=>{
             console.log(error);

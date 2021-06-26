@@ -24,7 +24,7 @@ export class ServiciosEmpresa {
     const params= new HttpParams()
     .set('id_td',empresa.id_tipo_documento)
     .set('ndoc',empresa.numero_documento)
-    .set('n',empresa.nombre_empresa)
+    .set('n',empresa.nombre)
     .set('c',empresa.correo)
     .set('t',empresa.telefono_empresa);
 
