@@ -29,7 +29,7 @@ export class ListadoEmpresasComponent implements OnInit{
       tipo_documento:    "",
       id_empresa:        "",
       numero_documento:  "",
-      nombre_empresa:    "",
+      nombre:    "",
       correo:            "",
       telefono_empresa:  ""
     };
@@ -69,7 +69,7 @@ export class ListadoEmpresasComponent implements OnInit{
         tipo_documento:    "",
         id_empresa:        "",
         numero_documento:  "",
-        nombre_empresa:    "",
+        nombre:    "",
         correo:            "",
         telefono_empresa:  ""
       }
@@ -117,7 +117,7 @@ export class ListadoEmpresasComponent implements OnInit{
         this.alertaError('Digite un número de documento');
         return false;
       }
-      if(this.nuevaEmpresa.nombre_empresa == ""){
+      if(this.nuevaEmpresa.nombre == ""){
         this.alertaError('Digite un nombre para la empresa');
         return false;
       }
@@ -149,8 +149,8 @@ export class ListadoEmpresasComponent implements OnInit{
     
     servicioLeerDatosIndividual(id: string){
       this.service.leerEmpresaIndividual(id)
-      .subscribe((data) =>{
-        this.nuevaEmpresa=data;
+      .subscribe((data:any) =>{
+        this.nuevaEmpresa=data.resul;
       },
       (error)=>{
         console.log(error);
@@ -161,8 +161,8 @@ export class ListadoEmpresasComponent implements OnInit{
     leerTiposDocumentos(){
       this.sharedService.leerTiposDocumentos()
       .subscribe(
-        (tiposdocumentos) => {
-          this.listadoDocumentos=tiposdocumentos;
+        (tiposdocumentos: any) => {
+          this.listadoDocumentos=tiposdocumentos.resul;
         },
         (error) => {
           console.log(error);
@@ -174,8 +174,8 @@ export class ListadoEmpresasComponent implements OnInit{
     leerDatos():void{
       this.service.leerDatos()
       .subscribe(
-        (empresa) => {
-          this.listadoEmpresas=empresa;
+        (empresa:any) => {
+          this.listadoEmpresas=empresa.resul;
         },
         (error) => {
           console.log(error);
@@ -188,8 +188,8 @@ export class ListadoEmpresasComponent implements OnInit{
       if(this.validarInformacionCrear()){
         this.service.agregarEmpresa(this.nuevaEmpresa)
           .subscribe(
-            (data) => {
-              if(data == null){
+            (data:any) => {
+              if(data.status === "ok"){
                 this.alertaCorrecta('Se creó la empresa correctamente.');
                 this.limpiarFormularioCrear();
                 this.leerDatos();
@@ -211,8 +211,8 @@ export class ListadoEmpresasComponent implements OnInit{
       if(this.validarInformacionEditar()){
         this.service.editarDatosEmpresa(this.nuevaEmpresa)
           .subscribe(
-            (data) =>{
-              if(data == null){
+            (data: any) =>{
+              if(data.status === "ok"){
                 this.alertaCorrecta('Se editaron los datos de la empresa correctamente.');
                 this.limpiarFormularioCrear();
                 this.leerDatos();

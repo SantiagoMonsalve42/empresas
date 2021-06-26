@@ -132,8 +132,8 @@ export class AgregarComponent implements OnInit {
   leerTiposDeDocumentosService(): void{
     this.sharedServices.leerTiposDocumentos()
         .subscribe(
-          (data) => {
-            this.listaDocumentos=data;
+          (data: any) => {
+            this.listaDocumentos=data.resul;
           },
           (error) => {
             console.log(error);
@@ -143,8 +143,8 @@ export class AgregarComponent implements OnInit {
   leerCargosService(): void{
     this.cargoService.leerCargos()
         .subscribe(
-          (data) => {
-            this.listaCargos=data;
+          (data:any) => {
+            this.listaCargos=data.resul;
           },
           (error)=>{
             console.log(error);
@@ -154,8 +154,8 @@ export class AgregarComponent implements OnInit {
   leerEmpresasServices():void{
     this.empresaService.leerDatos()
         .subscribe(
-          (data) =>{
-            this.listaEmpresas=data;
+          (data: any) =>{
+            this.listaEmpresas=data.resul;
           },
           (error) => {
             console.log(error);
@@ -166,8 +166,8 @@ export class AgregarComponent implements OnInit {
     if(this.validarFormulario()){
       this.PersonaService.agregarPersona(this.nuevaPersona)
           .subscribe(
-            (data) => {
-              if(data == null){
+            (data : any) => {
+              if(data.code === "200"){
                 this.alertaCorrecta('Se creó la empresa correctamente.');
                 this.limpiarFormulario();
                 this.router.navigate(["personas"]);

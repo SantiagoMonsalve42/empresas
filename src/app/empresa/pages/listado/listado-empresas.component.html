@@ -29,7 +29,7 @@
                     <tr *ngFor="let empresa of listadoEmpresas |  paginate: { itemsPerPage: 7, currentPage: pageActual }">
                         <td>{{empresa.tipo_documento}}</td>
                         <td>{{empresa.numero_documento}}</td>
-                        <td>{{empresa.nombre_empresa}}</td>
+                        <td>{{empresa.nombre}}</td>
                         <td>{{empresa.correo}}</td>
                         <td>{{empresa.telefono_empresa}}</td>
                         <td><button type="button" class="btn btn-info" (click)="mostrarDatosEmpresa(empresa.id_empresa)"><img src="assets/images/ver.png" class="icon-table" ></button></td>
@@ -67,7 +67,7 @@
                     </div>
                     <div class="col-sm-12 col-md-12 col-lg-6 col-xl-6 col-xxl-6">
                         <label >Nombre de la empresa</label>
-                        <input type="text" class="form-control" name="nombre" [(ngModel)]="nuevaEmpresa.nombre_empresa" readonly>
+                        <input type="text" class="form-control" name="nombre" [(ngModel)]="nuevaEmpresa.nombre" readonly>
                     </div>
                     <div class="col-sm-12 col-md-12 col-lg-6 col-xl-6 col-xxl-6">
                         <label >Teléfono de la empresa</label>
@@ -118,7 +118,7 @@
                                 </div>
                                 <div class="col-sm-12 col-md-12 col-lg-6 col-xl-6 col-xxl-6">
                                     <label >Nombre de la empresa</label>
-                                    <input type="text" class="form-control" name="nombre" [(ngModel)]="nuevaEmpresa.nombre_empresa" pattern="^[a-zA-Z]+(([',. -][a-zA-Z ])?[a-zA-Z]*)*$" >
+                                    <input type="text" class="form-control" name="nombre" [(ngModel)]="nuevaEmpresa.nombre" pattern="^[a-zA-Z]+(([',. -][a-zA-Z ])?[a-zA-Z]*)*$" >
                                 </div>
                                 <div class="col-sm-12 col-md-12 col-lg-6 col-xl-6 col-xxl-6">
                                     <label >Teléfono de la empresa</label>
@@ -168,7 +168,7 @@
                     </div>
                     <div class="col-sm-12 col-md-12 col-lg-6 col-xl-6 col-xxl-6">
                         <label >Nombre de la empresa</label>
-                        <input type="text" class="form-control" name="nombre" [(ngModel)]="nuevaEmpresa.nombre_empresa" readonly>
+                        <input type="text" class="form-control" name="nombre" [(ngModel)]="nuevaEmpresa.nombre" readonly>
                     </div>
                     <div class="col-sm-12 col-md-12 col-lg-6 col-xl-6 col-xxl-6">
                         <label >Teléfono de la empresa</label>

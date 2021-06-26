@@ -35,8 +35,8 @@ export class ListadoCargoComponent implements OnInit {
     leerCargosServices(): void{
       this.service.leerCargos()
           .subscribe(
-            (data) => {
-              this.listaCargos=data;
+            (data: any) => {
+              this.listaCargos=data.resul;
             },
             (error) =>{
               console.log(error);
@@ -75,8 +75,8 @@ export class ListadoCargoComponent implements OnInit {
       if(this.validarFormulario()){
           this.service.agregarCargo(this.cargo)
               .subscribe(
-                (data) => {
-                  if(data == null){
+                (data: any) => {
+                  if(data.status === "ok"){
                     this.alertaCorrecta('Se creó el cargo correctamente.');
                     this.limpiarObjetoCargo();
                     this.leerCargosServices();
